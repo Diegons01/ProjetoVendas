@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using VendasWebMvc.Models;
+using VendasWebMvc.Models.ViewModels;
 
 namespace VendasWebMvc.Controllers
 {
@@ -18,6 +18,7 @@ namespace VendasWebMvc.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Sistema de Vendas Web";
+            ViewData["Nome"] = "Diego Nascimento";
 
             return View();
         }

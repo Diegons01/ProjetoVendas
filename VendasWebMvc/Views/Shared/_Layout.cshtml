@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - Vendas Web</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-cerulean.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -29,7 +29,8 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Vendas Web</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">                    
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Departamentos" asp-action="Index">Departamento</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">Sobre</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
                 </ul>
