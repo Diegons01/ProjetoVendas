@@ -18,6 +18,13 @@ namespace VendasWebMvc.Models
         public Vendedor()
         {
         }
+        public Vendedor(string nome, string email, DateTime dataNascimento, double salarioBase)
+        {
+            Nome = nome;
+            Email = email;
+            DataNascimento = dataNascimento;
+            SalarioBase = salarioBase;
+        }
 
         public Vendedor(int id, string nome, string email, DateTime dataNascimento, double salarioBase)
         {
@@ -39,7 +46,7 @@ namespace VendasWebMvc.Models
         }
         public double TotalVendas(DateTime inicio, DateTime Final)
         {
-            return 0.0;
+            return registroVendas.Where(x => x.Data >= inicio && x.Data <= Final).Sum(x => x.Total);
         }
     }
 }

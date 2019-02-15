@@ -1,0 +1,28 @@
+﻿@model VendasWebMvc.Models.Vendedor
+
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Deseja excluir as informações?</h3>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>
+</div>
+@* <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>*@

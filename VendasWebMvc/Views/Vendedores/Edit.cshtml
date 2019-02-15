@@ -1,0 +1,43 @@
+﻿@model VendasWebMvc.Models.Vendedor
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h2>@ViewData["Title"] as informações</h2>
+
+<hr />
+<div class="row">
+    <div class="col-lg-4">
+        <form asp-action="Edit"> <!--Na ação Edit do controlador-->
+            <input type="hidden" asp-for="Id" /> <!--Pega o Id do objeto ficando oculto-->
+            <div class="form-group">
+                <!--Monta o grupo-->
+                <label asp-for="Nome" class="control-label"></label> <!--Conforme nome do atributo-->
+                <input asp-for="Nome" class="form-control" /> <!--Pega o valor do atributo-->
+                @*<span asp-validation-for="Seller.Name" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input asp-for="DataNascimento" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="SalarioBase" class="control-label"></label>
+                <input asp-for="SalarioBase" class="form-control" />
+            </div>
+            <div class="form-group">
+                <!--Submit leva para o Post-->
+                <input type="submit" value="Salvar" class="btn btn-success" />
+            </div>
+        </form>       
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Retonar</a>
+</div>
+

@@ -38,10 +38,14 @@ namespace VendasWebMvc
             //Acesso ao Banco SQL
             services.AddDbContext<VendasWebMvcContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("VendasWebMvcContext")));
+
+            #region Acesso ao MySql
             //MySql baixar extensão NuGet
             //services.AddDbContext<SalesWebMvcContext>(options =>
             //options.UseMySql(Configuration.GetConnectionString("SalesWebMvcContext"), builder =>
             //builder.MigrationsAssembly("SalesWebMvc")));
+            #endregion
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

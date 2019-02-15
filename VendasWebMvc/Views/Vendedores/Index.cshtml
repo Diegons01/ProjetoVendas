@@ -1,0 +1,59 @@
+﻿@model IEnumerable<VendasWebMvc.Models.Vendedor>
+
+@{
+    ViewData["Title"] = "Vendedores";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="form-group">
+    <a asp-action="Create" class="btn btn-primary">Cadastrar</a>
+</div>
+
+<table class="table"> <!--Table-->
+    <thead> <!--Cabeçalho da tabela-->
+        <tr>    <!--Define uma linha-->
+            <th>    <!--Define o cabeçalho -->
+                @Html.DisplayNameFor(model => model.Nome) <!--DisplayNameFor pega o nome do atributo-->
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalarioBase)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (Vendedor item in Model)
+        {
+        <tr> <!--Define uma linha-->
+            <td> <!--Define uma linha dentra da celula-->
+                @Html.DisplayFor(modelItem => item.Nome) <!--DisplayFor pega o valor do atributo-->
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalarioBase)
+            </td>
+            <td>
+                <!--Asp-Action define a ação que leva para o método editar do controlador-->
+                <!--asp-route leva o Id do objeto selecionado-->
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> | 
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+            </td>           
+        </tr>            
+        }
+    </tbody>
+</table>
+
+
+

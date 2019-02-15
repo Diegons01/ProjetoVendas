@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace VendasWebMvc.Models
 {
@@ -16,6 +17,18 @@ namespace VendasWebMvc.Models
         {
             Id = id;
             Nome = nome;
+        }
+
+        public void AddVendedor(Vendedor vendedor)
+        {
+            vendedores.Add(vendedor);
+        }
+
+        public double TotalVendas(DateTime inicio, DateTime final)
+        {
+            Vendedor vendedor = new Vendedor();
+
+            return vendedor.TotalVendas(inicio, final);           
         }
     }
 }
