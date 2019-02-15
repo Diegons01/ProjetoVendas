@@ -6,7 +6,18 @@ using VendasWebMvc.Models;
 
 namespace VendasWebMvc.Services
 {
-    public class ServiceRegistroVenda : RegistroVenda
+    public class ServiceRegistroVenda
     {
+        private readonly VendasWebMvcContext _context;
+
+        public ServiceRegistroVenda(VendasWebMvcContext context)
+        {
+            _context = context;
+        }
+
+        public List<RegistroVenda> BuscaRegistroVendas()
+        {
+            return _context.RegistroVenda.ToList();
+        }
     }
 }

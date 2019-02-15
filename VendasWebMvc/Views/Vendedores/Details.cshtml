@@ -1,9 +1,42 @@
-﻿
+﻿@model VendasWebMvc.Models.Vendedor
+
 @{
     ViewData["Title"] = "Informações";
 }
 
 <h2>@ViewData["Title"]</h2>
 
+<div class="form-group">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SalarioBase)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SalarioBase)
+        </dd>
+    </dl>
+    <div>
+        <a asp-action="Index" class="btn btn-primary">Retornar</a>
+    </div>    
+</div>
+    
 
 

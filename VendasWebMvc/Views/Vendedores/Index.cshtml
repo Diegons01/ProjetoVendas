@@ -11,7 +11,7 @@
 </div>
 
 <table class="table"> <!--Table-->
-    <thead> <!--Cabeçalho da tabela-->
+    <thead > <!--Cabeçalho da tabela-->
         <tr>    <!--Define uma linha-->
             <th>    <!--Define o cabeçalho -->
                 @Html.DisplayNameFor(model => model.Nome) <!--DisplayNameFor pega o nome do atributo-->
@@ -46,7 +46,7 @@
             <td>
                 <!--Asp-Action define a ação que leva para o método editar do controlador-->
                 <!--asp-route leva o Id do objeto selecionado-->
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> | 
+                <a asp-action="Edit" asp-route-id="@item.Id">Atualizar</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
             </td>           

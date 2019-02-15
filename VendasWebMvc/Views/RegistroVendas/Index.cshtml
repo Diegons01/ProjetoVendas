@@ -1,0 +1,45 @@
+﻿@model IEnumerable<VendasWebMvc.Models.RegistroVenda>
+
+@{
+    ViewData["Title"] = "Registro de vendas";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <a asp-action="Details" class="btn btn-default">Filtrar por data</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusVenda)
+            </th>
+        </tr>      
+    </thead>
+    <tbory>
+@foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(ModelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(ModelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(ModelItem => item.StatusVenda)
+            </td>
+        </tr>            
+        }
+    </tbory>
+</table>
+

@@ -6,7 +6,7 @@ using VendasWebMvc.Models;
 
 namespace VendasWebMvc.Services
 {
-    public class ServiceVendedores : Vendedor
+    public class ServiceVendedores
     {
         private readonly VendasWebMvcContext _context;
 
@@ -15,23 +15,33 @@ namespace VendasWebMvc.Services
             _context = context;
         }
 
-        public List<Vendedor> BuscaVendedores()
-        {
-          return _context.Vendedor.Where(x => x.Nome != null).ToList();
-        }
-        public Vendedor BuscaVendedor(int id)
-        {          
-            return _context.Vendedor.FirstOrDefault(x => x.Id == id);
-        }
         public void CriarNovo(Vendedor vendedor)
         {
             _context.Vendedor.Add(vendedor);
             _context.SaveChanges();
         }
+
         public void Atualizar(Vendedor vendedor)
         {
             _context.Update(vendedor);
             _context.SaveChanges();
         }
+
+        public void Excluir(Vendedor vendedor)
+        {
+            _context.Vendedor.Remove(vendedor);
+            _context.SaveChanges();
+        }
+
+        public List<Vendedor> BuscaVendedores()
+        {
+          return _context.Vendedor.ToList();
+        }
+
+        public Vendedor BuscaVendedor(int id)
+        {          
+            return _context.Vendedor.FirstOrDefault(x => x.Id == id);
+        }
+        
     }
 }

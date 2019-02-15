@@ -5,16 +5,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VendasWebMvc.Services;
 using VendasWebMvc.Models;
+using VendasWebMvc.Models.ViewModels;
 
 namespace VendasWebMvc.Controllers
 {
     public class VendedoresController : Controller
     {
         private readonly ServiceVendedores _serviceVendedores;
+        private readonly ServiceDepartamento _serviceDepartamento;
 
         public VendedoresController(VendasWebMvcContext vendasWebMvcContext)
         {
             _serviceVendedores = new ServiceVendedores(vendasWebMvcContext);
+            _serviceDepartamento = new ServiceDepartamento(vendasWebMvcContext);
         }
         //Get
         public IActionResult Index()
@@ -26,7 +29,9 @@ namespace VendasWebMvc.Controllers
         //Get
         public IActionResult Create()
         {
-            return View();
+            VendedorFormViewModel vendedorFormViewModel = new VendedorFormViewModel();
+            vendedorFormViewModel.Departamentos = _serviceDepartamento.BuscaDepartamentos();
+            return View(vendedorFormViewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -57,7 +62,7 @@ namespace VendasWebMvc.Controllers
         public IActionResult Edit(int id, Vendedor vendedor)
         {
             //Validar os Ids 
-           
+
             _serviceVendedores.Atualizar(vendedor);
 
             return RedirectToAction(nameof(Index));
@@ -70,9 +75,19 @@ namespace VendasWebMvc.Controllers
             return View(obj);
         }
 
-        public IActionResult Details()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id, Vendedor vendedor)
         {
-            return View();
+            _serviceVendedores.Excluir(vendedor);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Details(int id)
+        {
+            var obj = _serviceVendedores.BuscaVendedor(id);
+
+            return View(obj);
         }
     }
 }

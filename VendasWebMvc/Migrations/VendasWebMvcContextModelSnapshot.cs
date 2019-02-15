@@ -44,7 +44,7 @@ namespace VendasWebMvc.Migrations
 
                     b.Property<int?>("VendedorId");
 
-                    b.Property<int>("statusVenda");
+                    b.Property<int>("StatusVenda");
 
                     b.HasKey("Id");
 

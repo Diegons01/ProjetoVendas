@@ -11,10 +11,20 @@ namespace VendasWebMvc.Models
         public int Id { get; set; }
         public DateTime Data { get; set; }
         public double Total { get; set; }
-        public VendaStatus statusVenda { get; set; }
+        public VendaStatus StatusVenda { get; set; }
+        public Vendedor Vendedor { get; set; }
+        public int VendedorId { get; set; }
 
         public RegistroVenda()
         {
+        }
+
+        public RegistroVenda(int id, DateTime data, double total, VendaStatus statusVenda)
+        {
+            Id = id;
+            Data = data;
+            Total = total;
+            StatusVenda = statusVenda;
         }
     }
 }

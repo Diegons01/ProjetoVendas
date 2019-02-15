@@ -13,17 +13,11 @@ namespace VendasWebMvc.Models
         public DateTime DataNascimento { get; set; }
         public double SalarioBase { get; set; }
         public Departamento Departamento { get; set; }
+        public int DepartamentoId { get; set; }
         public List<RegistroVenda> registroVendas { get; set; } = new List<RegistroVenda>();        
 
         public Vendedor()
         {
-        }
-        public Vendedor(string nome, string email, DateTime dataNascimento, double salarioBase)
-        {
-            Nome = nome;
-            Email = email;
-            DataNascimento = dataNascimento;
-            SalarioBase = salarioBase;
         }
 
         public Vendedor(int id, string nome, string email, DateTime dataNascimento, double salarioBase)
